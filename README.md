@@ -1,0 +1,1 @@
+Currently a simple implementation of the children's game rock, paper, scissors.
