@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+
+  </body>
+  <script>
+
+    let plays = "";
+  
+    function computerPlay()
+    {
+      let random = Math.floor((Math.random() * 10) / 4.5 );
+    
+      console.log(random);
+    
+      switch(random)
+      {
+        case 0:
+        plays = "ROCK";
+        console.log(plays);
+        return plays;
+        break;
+
+        case 1:
+        plays = "PAPER";
+        console.log(plays);
+        return plays;
+        break;
+
+        case 2:
+        plays = "SCISSORS";
+        console.log(plays);
+        return plays;
+      }
+    
+    }
+
+     function round(playerSelection, computerSelection)
+    {
+      playerSelection = playerSelection.toUpperCase();
+
+      switch(true)
+      {
+
+        case playerSelection == "ROCK" && computerSelection == "SCISSORS":
+        console.log("You win! ROCK beats SCISSORS!");
+        break;
+
+        case playerSelection == "SCISSORS" && computerSelection == "ROCK":
+        console.log("You lose! ROCK beats SCISSORS!");
+        break;
+
+        case playerSelection == "PAPER" && computerSelection == "ROCK":
+        console.log("You win! PAPER beats ROCK!");
+        break;
+
+        case playerSelection == "ROCK" && computerSelection == "PAPER":
+        console.log("You lose! PAPER beats ROCK!");
+        break;
+
+        case playerSelection == "SCISSORS" && computerSelection == "PAPER":
+        console.log("You win! SCISSORS beats PAPER!");
+        break;
+
+        case playerSelection == "PAPER" && computerSelection == "SCISSORS":
+        console.log("You lose! SCISSORS beats PAPER!");
+        break;
+    
+        case playerSelection == computerSelection:
+        console.log("It's a draw!");
+        break;
+      }
+    }
+
+    computerPlay();
+    round("scissors", plays);
+    
+  </script>
+</html>
