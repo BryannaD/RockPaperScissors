@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+
+  </body>
+  <script>
+
+let plays = "";
+let userSelection = "Select one";
+let win = 0;
+let lose = 0;
+let tie = 0;
+
+function computerPlay()
+{
+    let random = Math.floor((Math.random() * 10) / 4.5 );
+    
+    console.log(random);
+    
+    switch(random)
+    {
+        case 0:
+        plays = "ROCK";
+        console.log(plays);
+        return plays;
+        break;
+
+        case 1:
+        plays = "PAPER";
+        console.log(plays);
+        return plays;
+        break;
+
+        case 2:
+        plays = "SCISSORS";
+        console.log(plays);
+        return plays;
+    }
+    
+}
+
+function round(playerSelection, computerSelection)
+{
+
+    playerSelection = playerSelection.toUpperCase();
+    
+    while(playerSelection != "ROCK" && playerSelection != "PAPER" && playerSelection != "SCISSORS")
+       {
+           alert("Incorrect tool selection, please try again!");
+           playerSelection = prompt("Select a tool!", "Rock, Paper, or Scissors");
+           playerSelection = playerSelection.toUpperCase();
+       };
+
+    
+    switch(true)
+    {
+
+        case playerSelection == "ROCK" && computerSelection == "SCISSORS":
+        console.log("You win! ROCK beats SCISSORS!");
+        win++;
+        break;
+
+        case playerSelection == "SCISSORS" && computerSelection == "ROCK":
+        console.log("You lose! ROCK beats SCISSORS!");
+        lose++;
+        break;
+
+        case playerSelection == "PAPER" && computerSelection == "ROCK":
+        console.log("You win! PAPER beats ROCK!");
+        win++;
+        break;
+
+        case playerSelection == "ROCK" && computerSelection == "PAPER":
+        console.log("You lose! PAPER beats ROCK!");
+        lose++;
+        break;
+
+        case playerSelection == "SCISSORS" && computerSelection == "PAPER":
+        console.log("You win! SCISSORS beats PAPER!");
+        win++;
+        break;
+
+        case playerSelection == "PAPER" && computerSelection == "SCISSORS":
+        console.log("You lose! SCISSORS beats PAPER!");
+        lose++;
+        break;
+        
+        case playerSelection == computerSelection:
+        console.log("It's a draw!");
+        tie++;
+        break;
+    }
+}
+
+function score()
+{
+    if(win > lose)
+    {
+        alert(`You have won! (You: ${win} to Comp: ${lose}), ties:${tie}`);
+    }
+    else if(win < lose)
+    {
+        alert(`You have lost! (Comp: ${lose} to You: ${win}, ties:${tie})`);
+    }
+    else
+    {
+        alert("It's a tie!");
+    };
+}
+
+
+function game()
+{
+
+    for(roundCount = 0; roundCount <= 4; roundCount++)
+    {
+        
+        userSelection = prompt("Select a tool!", "Rock, Paper, or Scissors");
+        computerPlay();
+        round(userSelection, plays);
+    }
+
+    score();
+}
+
+game();
+
+  </script>
+</html>
